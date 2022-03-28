@@ -4,7 +4,12 @@ st.title("hi ")
 frame_window=st.image([])
 run=st.checkbox("run")
 cap=cv2.VideoCapture(-1)
-
+camera_backends = cv2.videoio_registry.getCameraBackends()
+print(camera_backends)
+print([
+    cv2.videoio_registry.getBackendName(apipref)
+    for apipref in camera_backends
+])
 if cap.isOpened():
     while run:
         #st.write("hii")
