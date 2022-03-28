@@ -12,7 +12,7 @@ print([
     for apipref in camera_backends
 ])
 def do():
-    cap=cv2.VideoCapture(cv2.CAP_V4L2)
+    cap=cv2.VideoCapture(-1)
     if cap.isOpened():
         while run:
         #st.write("hii")
