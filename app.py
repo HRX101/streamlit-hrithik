@@ -1,6 +1,7 @@
 import streamlit as st
 import cv2
 st.title("hi ")
+st.wrtie("opencv")
 frame_window=st.image([])
 run=st.checkbox("run")
 
