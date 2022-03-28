@@ -12,11 +12,12 @@ print([
 ])
 def do():
     cap=cv2.VideoCapture(cv2.CAP_V4L2)
-    while run:
+    if cap.isOpened():
+        while run:
         #st.write("hii")
-        ret,frame=cap.read()
-        frame=cv2.flip(frame,1)
-        frame_window.image(frame)
+            ret,frame=cap.read()
+            frame=cv2.flip(frame,1)
+            frame_window.image(frame)
 
     else:
         st.write("stopped")
