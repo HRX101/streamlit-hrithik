@@ -10,7 +10,11 @@ class VideoTransformer(VideoTransformerBase):
         frame=cv2.Canny(img,100,200)
         img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-        return img
+        return av.VideoFrame.form_ndarray(img,format="bgr24")
 
 
-webrtc_streamer(key="sample", video_transformer_factory=VideoTransformer)
+webrtc_streamer(key="key", video_transformer_factory=VideoTransformer,
+            rtc_configuration=RTCConfiguration(
+                {"iceServers":[{"urls":["stun:stun.l.google.com:19302"]}]}
+            )
+)
