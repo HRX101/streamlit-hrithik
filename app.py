@@ -6,6 +6,7 @@ from streamlit_webrtc import RTCConfiguration, webrtc_streamer,VideoTransformerB
 st.title("hi ")
 frame_window=st.image([])
 run=st.checkbox("run")
+face_cascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 class VideoTransformer(VideoTransformerBase):
     def transform(self, frame):
         img= frame.to_ndarray(format="bgr24")
