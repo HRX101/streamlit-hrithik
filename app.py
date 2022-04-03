@@ -43,7 +43,7 @@ s12=1
 class VideoTransformer(VideoTransformerBase):
     def transform(self, frame):
         img= frame.to_ndarray(format="bgr24")
-        p+=1
+       
         img=cv2.flip(img,1)
         img_gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
         
