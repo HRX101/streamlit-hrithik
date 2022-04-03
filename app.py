@@ -1,6 +1,6 @@
+from cv2 import CascadeClassifier
 import streamlit as st
 import cv2
-from streamlit_webrtc import webrtc_streamer,VideoTransformerBase
 import av
 from streamlit_webrtc import RTCConfiguration, webrtc_streamer,VideoTransformerBase
 st.title("hi ")
