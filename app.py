@@ -11,7 +11,6 @@ import av
 from streamlit_webrtc import RTCConfiguration, webrtc_streamer,VideoTransformerBase
 st.title("Face-emotion-detection")
 frame_window=st.image([])
-run=st.checkbox("run")
 run=st.checkbox("instruction")
 if run:
     st.write("press start for detection")
