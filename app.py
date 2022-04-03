@@ -14,7 +14,7 @@ class VideoTransformer(VideoTransformerBase):
         img=cv2.flip(img,1)
         face=face_cascade.detectMultiScale(img_gray,1.4)
         for (x,y,w,h) in face:
-            cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),1)
+            cv2.rectangle(img,(x,y),(x+h,y+w),(255,0,0),1)
         #cv2.rectangle(frame, (200,40),(450,350),(255, 0, 255), 2)
 
         return img
