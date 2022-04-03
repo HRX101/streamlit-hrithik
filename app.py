@@ -8,11 +8,15 @@ frame_window=st.image([])
 run=st.checkbox("run")
 class VideoTransformer(VideoTransformerBase):
     def transform(self, frame):
-        img = frame.to_ndarray(format="bgr24")
-        frame=cv2.Canny(img,100,200)
-        img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        img= frame.to_ndarray(format="bgr24")
+        img_gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+        img=cv2.flip(img,1)
+        face=face_cascade.detectMultiScale(img_gray,1.4)
+        for (x,y,w,h) in face:
+            cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),1)
+        #cv2.rectangle(frame, (200,40),(450,350),(255, 0, 255), 2)
 
-        return av.VideoFrame.form_ndarray(img,format="bgr24")
+        return img
 
 
 webrtc_streamer(key="key", video_transformer_factory=VideoTransformer,
