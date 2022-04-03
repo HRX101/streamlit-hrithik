@@ -12,6 +12,9 @@ from streamlit_webrtc import RTCConfiguration, webrtc_streamer,VideoTransformerB
 st.title("Face-emotion-detection")
 frame_window=st.image([])
 run=st.checkbox("run")
+run=st.checkbox("instruction")
+if run:
+    st.write("press start for detection")
 p12=""
 convnet = input_data(shape=[50,50,1])
 convnet = conv_2d(convnet, 32, 5, activation='relu')
@@ -96,8 +99,19 @@ webrtc_streamer(key="key", video_transformer_factory=VideoTransformer,
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
+            footer {visibility: visible;}
             header{visibility:hidden;}
+            a{
+                visibility:hidden;
+            }
+  
+            footer:after{
+                content:'and made by team Mythical Phoenix';
+                display:block;
+                color:red;
+                padding:5px;
+                top:3px;
+            }
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
