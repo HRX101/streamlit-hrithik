@@ -93,3 +93,10 @@ webrtc_streamer(key="key", video_transformer_factory=VideoTransformer,
                 {"iceServers":[{"urls":["stun:stun.l.google.com:19302"]}]}
             )
 )
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
