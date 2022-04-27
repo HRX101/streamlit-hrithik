@@ -1,11 +1,18 @@
 import streamlit as st
 import tflearn
+from PIL import Image
 from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.estimator import regression
 import numpy as np
 import cv2
 from streamlit_webrtc import RTCConfiguration, webrtc_streamer,VideoTransformerBase
+im = Image.open("Face.png")
+st.set_page_config(
+    page_title="Face-emotion-detection",
+    page_icon=im,
+    layout="centered",
+)
 st.title("Face-emotion-detection")
 frame_window=st.image([])
 run=st.checkbox("instruction")
@@ -88,7 +95,7 @@ hide_streamlit_style = """
             header:after{
                 visibility:visible;
                 content:'For face detection SIH project';
-                color:white;
+                color:red;
                 padding:5px;
                 
             }
@@ -103,3 +110,4 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
